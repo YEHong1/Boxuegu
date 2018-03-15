@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/launch_bg">
+    <!--该控件用于显示版本号-->
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+    />
 
-    <!--<TextView-->
-        <!---->
-        <!--android:layout_width="184dp"-->
-        <!--android:layout_height="32dp"-->
-        <!--android:text="version"-->
-        <!--android:visibility="visible" />-->
+</RelativeLayout>
+<!--
+①wrap_content：自适应大小，强制性地使视图扩展以便显示其全部内容。
+② match_parent：设置一个视图的布局为match_parent将强制性地使视图扩展至父元素大小。
 
-</LinearLayout>
+android:layout_centerInParent="true"
+将TextView放置于父控件的中心位置
+-->
