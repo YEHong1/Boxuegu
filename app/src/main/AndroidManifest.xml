@@ -13,17 +13,21 @@
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".activity.SplashActivity">
+
             <!--
                 android.intent.action.MAIN决定应用程序最先启动的Activity
                 android.intent.category.LAUNCHER决定应用程序是否显示在程序列表里
             -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.LoginAcitivity"></activity>
     </application>
 
 </manifest>
