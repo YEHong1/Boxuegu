@@ -27,7 +27,10 @@
         </activity>
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.LoginAcitivity"></activity>
+        <activity android:name=".activity.LoginAcitivity"/>
+        <activity android:name=".activity.ActivitySettingActivity"/>
+        <activity android:name=".activity.ActivityModifyPswActivity"/>
+        <activity android:name=".activity.ActivityFindPswActivity"/>
     </application>
 
 </manifest>
