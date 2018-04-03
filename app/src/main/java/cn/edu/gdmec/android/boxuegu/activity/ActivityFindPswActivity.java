@@ -73,6 +73,7 @@ public class ActivityFindPswActivity extends Activity implements View.OnClickLis
             tv_main_title.setText("设置密保");
         }else {
             tv_main_title.setText("找回密码");
+            btn_validate.setText("设置");
             tv_user_name.setVisibility(View.VISIBLE);
             et_user_name.setVisibility(View.VISIBLE);
         }
