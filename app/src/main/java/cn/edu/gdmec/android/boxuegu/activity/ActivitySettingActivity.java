@@ -74,6 +74,10 @@ public class ActivitySettingActivity extends Activity implements View.OnClickLis
                 Intent data = new Intent();
                 data.putExtra("isLogin",false);
                 setResult(RESULT_OK,data);
+                //头像下面的用户名推出登陆后变成“点击登录”
+                Intent intent1 = new Intent(ActivitySettingActivity.this,MainActivity.class);
+                startActivity(intent1);
+
                 finish();
                 break;
         }

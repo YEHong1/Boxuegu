@@ -1,6 +1,7 @@
 package cn.edu.gdmec.android.boxuegu.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -26,6 +27,7 @@ public class ActivityFindPswActivity extends Activity implements View.OnClickLis
     private TextView tv_user_name;
     private EditText et_user_name;
     private EditText et_validate_name;
+    private EditText et_input_psw;
     private TextView tv_reset_psw;
     private Button btn_validate;
     private String validateName;
@@ -66,16 +68,20 @@ public class ActivityFindPswActivity extends Activity implements View.OnClickLis
         tv_user_name = (TextView) findViewById(R.id.tv_user_name);
         et_user_name = (EditText) findViewById(R.id.et_user_name);
         et_validate_name = (EditText) findViewById(R.id.et_validate_name);
+        et_input_psw = (EditText) findViewById(R.id.et_input_psw);
         tv_reset_psw = (TextView) findViewById(R.id.tv_reset_psw);
         btn_validate = (Button) findViewById(R.id.btn_validate);
 
         if ("security".equals(from)){
             tv_main_title.setText("设置密保");
+            btn_validate.setText("设置");
         }else {
             tv_main_title.setText("找回密码");
             btn_validate.setText("设置");
             tv_user_name.setVisibility(View.VISIBLE);
             et_user_name.setVisibility(View.VISIBLE);
+            tv_reset_psw.setVisibility(View.VISIBLE);
+            et_input_psw.setVisibility(View.VISIBLE);
         }
         tv_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +95,7 @@ public class ActivityFindPswActivity extends Activity implements View.OnClickLis
 
     private void submit() {
         // validate
+
         String validateName = et_validate_name.getText().toString().trim();
         if ("security".equals(from)){
             if (TextUtils.isEmpty(validateName)){
@@ -99,7 +106,8 @@ public class ActivityFindPswActivity extends Activity implements View.OnClickLis
                 saveSecurity(validateName);
                 ActivityFindPswActivity.this.finish();
             }
-        }else {
+        }else{
+
             String name = et_user_name.getText().toString().trim();
             String sp_security = readSercurity(name);
             if (TextUtils.isEmpty(name)) {
@@ -115,16 +123,20 @@ public class ActivityFindPswActivity extends Activity implements View.OnClickLis
                 Toast.makeText(this, "输入的密保不正确", Toast.LENGTH_SHORT).show();
                 return;
             }else {
-                tv_reset_psw.setVisibility(View.VISIBLE);
-                tv_reset_psw.setText("初始密码：123456");
-                savePsw(name);
+                String newpsw = et_input_psw.getText().toString().trim();
+                Toast.makeText(this, "新密码修改成功", Toast.LENGTH_SHORT).show();
+                savePsw(newpsw);
+                Intent intent = new Intent(ActivityFindPswActivity.this,LoginAcitivity.class);
+                startActivity(intent);
+                ActivitySettingActivity.instance.finish();
+                ActivityFindPswActivity.this.finish();
             }
         }
 
     }
 
     private void savePsw(String name){
-        String md5Psw = MD5Utils.md5("123456");
+        String md5Psw = MD5Utils.md5(name);
         SharedPreferences sp = getSharedPreferences("loginInfo",MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(name,md5Psw);
