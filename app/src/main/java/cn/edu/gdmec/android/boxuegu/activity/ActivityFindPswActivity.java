@@ -108,7 +108,7 @@ public class ActivityFindPswActivity extends Activity implements View.OnClickLis
             }
         }else{
 
-            String name = et_user_name.getText().toString().trim();
+            final String name = et_user_name.getText().toString().trim();
             String sp_security = readSercurity(name);
             if (TextUtils.isEmpty(name)) {
                 Toast.makeText(this, "请输入您的用户名", Toast.LENGTH_SHORT).show();
@@ -124,19 +124,20 @@ public class ActivityFindPswActivity extends Activity implements View.OnClickLis
                 return;
             }else {
                 String newpsw = et_input_psw.getText().toString().trim();
-                Toast.makeText(this, "新密码修改成功", Toast.LENGTH_SHORT).show();
-                savePsw(newpsw);
-                Intent intent = new Intent(ActivityFindPswActivity.this,LoginAcitivity.class);
-                startActivity(intent);
-                ActivitySettingActivity.instance.finish();
-                ActivityFindPswActivity.this.finish();
+                if(!TextUtils.isEmpty(newpsw)){
+                    savePsw(name,newpsw);
+                    Toast.makeText(this,"密码修改成功",Toast.LENGTH_SHORT).show();
+                    ActivityFindPswActivity.this.finish();
+                }else {
+                    Toast.makeText(this,"请输入新密码",Toast.LENGTH_SHORT).show();
+                }
             }
         }
 
     }
 
-    private void savePsw(String name){
-        String md5Psw = MD5Utils.md5(name);
+    private void savePsw(String name,String newpsw){
+        String md5Psw = MD5Utils.md5(newpsw);
         SharedPreferences sp = getSharedPreferences("loginInfo",MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(name,md5Psw);
