@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.activity.ActivitySettingActivity;
+import cn.edu.gdmec.android.boxuegu.activity.ActivityUserInfoActivity;
 import cn.edu.gdmec.android.boxuegu.activity.LoginAcitivity;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
 
@@ -62,6 +63,8 @@ public class FragmentMyinfoFragment extends Fragment  implements View.OnClickLis
             case R.id.ll_head:
                 if (AnalysisUtils.readLoginStatus(getActivity())){
                     //跳转到个人资料界面
+                    Intent intent = new Intent(getActivity(), ActivityUserInfoActivity.class);
+                    getActivity().startActivity(intent);
                 }else {
                     Intent intent = new Intent(getActivity(), LoginAcitivity.class);
                     getActivity().startActivityForResult(intent,1);

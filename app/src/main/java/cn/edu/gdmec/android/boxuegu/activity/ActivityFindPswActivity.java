@@ -80,8 +80,7 @@ public class ActivityFindPswActivity extends Activity implements View.OnClickLis
             btn_validate.setText("设置");
             tv_user_name.setVisibility(View.VISIBLE);
             et_user_name.setVisibility(View.VISIBLE);
-            tv_reset_psw.setVisibility(View.VISIBLE);
-            et_input_psw.setVisibility(View.VISIBLE);
+
         }
         tv_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,14 +122,22 @@ public class ActivityFindPswActivity extends Activity implements View.OnClickLis
                 Toast.makeText(this, "输入的密保不正确", Toast.LENGTH_SHORT).show();
                 return;
             }else {
-                String newpsw = et_input_psw.getText().toString().trim();
-                if(!TextUtils.isEmpty(newpsw)){
-                    savePsw(name,newpsw);
-                    Toast.makeText(this,"密码修改成功",Toast.LENGTH_SHORT).show();
-                    ActivityFindPswActivity.this.finish();
-                }else {
-                    Toast.makeText(this,"请输入新密码",Toast.LENGTH_SHORT).show();
-                }
+                tv_reset_psw.setVisibility(View.VISIBLE);
+                et_input_psw.setVisibility(View.VISIBLE);
+                btn_validate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String newpsw = et_input_psw.getText().toString().trim();
+                        if(!TextUtils.isEmpty(newpsw)){
+                            savePsw(name,newpsw);
+                            Toast.makeText(ActivityFindPswActivity.this,"密码修改成功",Toast.LENGTH_SHORT).show();
+                            ActivityFindPswActivity.this.finish();
+                        }else {
+                            Toast.makeText(ActivityFindPswActivity.this,"请输入新密码",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
             }
         }
 
