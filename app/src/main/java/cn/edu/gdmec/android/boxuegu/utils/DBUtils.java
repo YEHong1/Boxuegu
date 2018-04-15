@@ -40,7 +40,7 @@ public class DBUtils {
     }
 
     public UserBean getUserInfo(String userName){
-        String sql = "SELECT * FROM" + SQLiteHelper.U_USERINFO + "WHERE userName = ?";
+        String sql = "SELECT * FROM" + SQLiteHelper.U_USERINFO + "WHERE userName=?";
         Cursor cursor = db.rawQuery(sql,new String[]{userName});
         UserBean userBean = null;
         while (cursor.moveToNext()){
@@ -57,7 +57,7 @@ public class DBUtils {
     public void updateUserInfo(String key,String value,String userName){
         ContentValues contentValues = new ContentValues();
         contentValues.put(key,value);
-        db.update(SQLiteHelper.U_USERINFO,contentValues,"userName = ?",
+        db.update(SQLiteHelper.U_USERINFO,contentValues,"userName=?",
                 new String[]{userName});
     }
 }

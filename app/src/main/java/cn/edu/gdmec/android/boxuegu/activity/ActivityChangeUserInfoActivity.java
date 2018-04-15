@@ -19,7 +19,6 @@ import cn.edu.gdmec.android.boxuegu.R;
 
 public class ActivityChangeUserInfoActivity extends Activity  implements View.OnClickListener{
 
-    private ImageView ivDelete;
     private TextView tv_back;
     private TextView tv_main_title;
     private TextView tv_save;
@@ -42,7 +41,7 @@ public class ActivityChangeUserInfoActivity extends Activity  implements View.On
         tv_save = (TextView)findViewById(R.id.tv_save);
         title_bar = (RelativeLayout)findViewById(R.id.title_bar);
         et_content = (EditText)findViewById(R.id.et_content);
-        ivDelete = (ImageView) findViewById(R.id.iv_delete);
+        iv_delete = (ImageView) findViewById(R.id.iv_delete);
 
         title = getIntent().getStringExtra("title");
         content = getIntent().getStringExtra("content");
@@ -101,7 +100,9 @@ public class ActivityChangeUserInfoActivity extends Activity  implements View.On
                             String newStr = str.substring(0,8);
                             et_content.setText(newStr);
                             editable = et_content.getText();
+
                             int newLen = editable.length();
+
                             if (selEndIndex > newLen){
                                 selEndIndex = editable.length();
                             }
@@ -125,7 +126,6 @@ public class ActivityChangeUserInfoActivity extends Activity  implements View.On
     private EditText getEtContent(){
         return (EditText) findViewById(R.id.et_content);
     }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){

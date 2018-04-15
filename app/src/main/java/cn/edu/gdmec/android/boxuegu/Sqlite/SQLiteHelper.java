@@ -20,18 +20,18 @@ public class SQLiteHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS" + U_USERINFO + "("
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + U_USERINFO + "("
         + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-        + "userName VARCHAR"
-        + "nickName VARCHAR"
-        + "sex VARCHAR"
+        + "userName VARCHAR,"
+        + "nickName VARCHAR,"
+        + "sex VARCHAR,"
         + "signature VARCHAR"
         + ")");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS" + U_USERINFO);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + U_USERINFO);
         onCreate(sqLiteDatabase);
     }
 }

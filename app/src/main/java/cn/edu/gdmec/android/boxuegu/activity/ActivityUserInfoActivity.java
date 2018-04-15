@@ -44,7 +44,7 @@ public class ActivityUserInfoActivity extends Activity implements View.OnClickLi
         setContentView(R.layout.activity_user_info);
         spUserName = AnalysisUtils.readLoginUserName(this);
         initView();
-
+        //initData();
 
     }
 
@@ -83,10 +83,10 @@ public class ActivityUserInfoActivity extends Activity implements View.OnClickLi
             bean.signature = "问答精灵";
             DBUtils.getInstance(this).saveUserInfo(bean);
         }
-        satValue(bean);
+        setValue(bean);
     }
 
-    private void satValue(UserBean bean){
+    private void setValue(UserBean bean){
         tvUserName.setText(bean.userName);
         tvNickName.setText(bean.nickName);
         tvSex.setText(bean.sex);
@@ -107,7 +107,8 @@ public class ActivityUserInfoActivity extends Activity implements View.OnClickLi
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
-                Toast.makeText(ActivityUserInfoActivity.this,item[i],Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityUserInfoActivity.this,item[i],
+                        Toast.LENGTH_SHORT).show();
                 setSex(item[i]);
             }
         });
@@ -146,7 +147,7 @@ public class ActivityUserInfoActivity extends Activity implements View.OnClickLi
                     if (TextUtils.isEmpty(new_info)){
                         return;
                     }
-                    tvNickName.setText(new_info);
+                    tvSignature.setText(new_info);
                     DBUtils.getInstance(ActivityUserInfoActivity.this).updateUserInfo("signature",
                             new_info,spUserName);
                 }
