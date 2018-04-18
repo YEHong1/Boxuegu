@@ -35,8 +35,11 @@ public class ActivityUserInfoActivity extends Activity implements View.OnClickLi
     private TextView tvSignature;
     private String spUserName;
     private String new_info;
+    private TextView tv_qq;
+    private RelativeLayout rl_qq;
     private static final int CHANGE_NICKNAME = 1;
     private static final int CHANGE_SIGNATURE = 2;
+    private static final int CHANGE_QQ = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,7 @@ public class ActivityUserInfoActivity extends Activity implements View.OnClickLi
         setContentView(R.layout.activity_user_info);
         spUserName = AnalysisUtils.readLoginUserName(this);
         initView();
-        //initData();
+        initData();
 
     }
 
@@ -62,6 +65,8 @@ public class ActivityUserInfoActivity extends Activity implements View.OnClickLi
         tvSex = (TextView) findViewById(R.id.tv_sex);
         rlSignature = (RelativeLayout) findViewById(R.id.rl_signature);
         tvSignature = (TextView) findViewById(R.id.tv_signature);
+        tv_qq = (TextView)findViewById(R.id.tv_qq);
+        rl_qq = (RelativeLayout)findViewById(R.id.rl_qq);
 
         tv_back.setOnClickListener(this);
         tv_main_title.setText("个人资料");
@@ -71,6 +76,7 @@ public class ActivityUserInfoActivity extends Activity implements View.OnClickLi
         rlNickName.setOnClickListener(this);
         rlSex.setOnClickListener(this);
         rlSignature.setOnClickListener(this);
+        rl_qq.setOnClickListener(this);
     }
 
     private void initData(){
@@ -81,6 +87,7 @@ public class ActivityUserInfoActivity extends Activity implements View.OnClickLi
             bean.nickName = "问答精灵";
             bean.sex = "男";
             bean.signature = "问答精灵";
+            bean.qq = "未填写";
             DBUtils.getInstance(this).saveUserInfo(bean);
         }
         setValue(bean);
@@ -91,6 +98,7 @@ public class ActivityUserInfoActivity extends Activity implements View.OnClickLi
         tvNickName.setText(bean.nickName);
         tvSex.setText(bean.sex);
         tvSignature.setText(bean.signature);
+        tv_qq.setText(bean.qq);
     }
 
     private void sexDialog(String sex){
@@ -152,6 +160,18 @@ public class ActivityUserInfoActivity extends Activity implements View.OnClickLi
                             new_info,spUserName);
                 }
                 break;
+            case CHANGE_QQ:
+                if (data != null) {
+                    new_info = data.getStringExtra("qq");
+                    if (TextUtils.isEmpty(new_info)) {
+                        return;
+                    }
+                    tv_qq.setText(new_info);
+                    //更新数据库中签名字段
+                    DBUtils.getInstance(ActivityUserInfoActivity.this).updateUserInfo("qq",
+                            new_info, spUserName);
+                }
+                break;
         }
     }
 
@@ -184,6 +204,15 @@ public class ActivityUserInfoActivity extends Activity implements View.OnClickLi
                 bdSignature.putString("title","签名");
                 bdSignature.putInt("flag",2);
                 enterActivityForResult(ActivityChangeUserInfoActivity.class,CHANGE_SIGNATURE,bdSignature);
+                break;
+
+            case R.id.rl_qq:
+                String qq = tv_qq.getText().toString();
+                Bundle bdqq = new Bundle();
+                bdqq.putString("content",qq);
+                bdqq.putString("title","QQ号码");
+                bdqq.putInt("flag",3);
+                enterActivityForResult(ActivityChangeUserInfoActivity.class,CHANGE_QQ,bdqq);
                 break;
         }
     }

@@ -36,22 +36,24 @@ public class DBUtils {
         contentValues.put("nickName",bean.nickName);
         contentValues.put("sex",bean.sex);
         contentValues.put("signature",bean.signature);
+        contentValues.put("qq",bean.qq);
         db.insert(SQLiteHelper.U_USERINFO,null,contentValues);
     }
 
     public UserBean getUserInfo(String userName){
-        String sql = "SELECT * FROM" + SQLiteHelper.U_USERINFO + "WHERE userName=?";
+        String sql = "SELECT * FROM " + SQLiteHelper.U_USERINFO + " WHERE userName=?";
         Cursor cursor = db.rawQuery(sql,new String[]{userName});
-        UserBean userBean = null;
+        UserBean bean = null;
         while (cursor.moveToNext()){
-            userBean = new UserBean();
-            userBean.userName = cursor.getString(cursor.getColumnIndex("userName"));
-            userBean.nickName = cursor.getString(cursor.getColumnIndex("nickName"));
-            userBean.sex = cursor.getString(cursor.getColumnIndex("sex"));
-            userBean.signature = cursor.getString(cursor.getColumnIndex("signature"));
+            bean = new UserBean();
+            bean.userName = cursor.getString(cursor.getColumnIndex("userName"));
+            bean.nickName = cursor.getString(cursor.getColumnIndex("nickName"));
+            bean.sex = cursor.getString(cursor.getColumnIndex("sex"));
+            bean.signature = cursor.getString(cursor.getColumnIndex("signature"));
+            bean.qq = cursor.getString(cursor.getColumnIndex("qq"));
         }
         cursor.close();
-        return userBean;
+        return bean;
     }
 
     public void updateUserInfo(String key,String value,String userName){

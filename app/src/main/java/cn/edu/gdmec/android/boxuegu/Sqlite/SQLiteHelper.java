@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class SQLiteHelper extends SQLiteOpenHelper{
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
     public static String DB_NAME = "bxg.db";
     public static final String U_USERINFO = "userinfo";
 
@@ -25,8 +25,9 @@ public class SQLiteHelper extends SQLiteOpenHelper{
         + "userName VARCHAR,"
         + "nickName VARCHAR,"
         + "sex VARCHAR,"
-        + "signature VARCHAR"
-        + ")");
+        + "signature VARCHAR,"
+        + "qq VARCHAR"
+        +")");
     }
 
     @Override

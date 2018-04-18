@@ -97,7 +97,24 @@ public class ActivityChangeUserInfoActivity extends Activity  implements View.On
                             int selEndIndex = Selection.getSelectionEnd(editable);
                             String str = editable.toString();
 
-                            String newStr = str.substring(0,8);
+                            String newStr = str.substring(0,16);
+                            et_content.setText(newStr);
+                            editable = et_content.getText();
+
+                            int newLen = editable.length();
+
+                            if (selEndIndex > newLen){
+                                selEndIndex = editable.length();
+                            }
+                            Selection.setSelection(editable,selEndIndex);
+                        }
+                        break;
+                    case 3:
+                        if (len > 12){
+                            int selEndIndex = Selection.getSelectionEnd(editable);
+                            String str = editable.toString();
+
+                            String newStr = str.substring(0,12);
                             et_content.setText(newStr);
                             editable = et_content.getText();
 
@@ -162,6 +179,18 @@ public class ActivityChangeUserInfoActivity extends Activity  implements View.On
                         }else {
                             Toast.makeText(ActivityChangeUserInfoActivity.this,
                                     "签名不能为空",Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+                    case 3:
+                        if (!TextUtils.isEmpty(etContent)){
+                            data.putExtra("qq",etContent);
+                            setResult(RESULT_OK,data);
+                            Toast.makeText(ActivityChangeUserInfoActivity.this,
+                                    "保存成功",Toast.LENGTH_SHORT).show();
+                            ActivityChangeUserInfoActivity.this.finish();
+                        }else {
+                            Toast.makeText(ActivityChangeUserInfoActivity.this,
+                                    "QQ不能为空",Toast.LENGTH_SHORT).show();
                         }
                         break;
                 }
