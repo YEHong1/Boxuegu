@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:orientation="vertical">
 
-    <include layout="@layout/main_title_bar"/>
+    <include layout="@layout/main_title_bar" />
 
     <TextView
         android:layout_width="match_parent"
@@ -12,26 +13,25 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
-        android:text="选择题"
         android:gravity="center"
-        android:textStyle="bold"
+        android:text="选择题"
         android:textColor="#000000"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:id="@+id/rv_list">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <TextView
+        android:id="@+id/tv_dibu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
         android:gravity="center"
-        android:id="@+id/tv_dibu"
-        android:text="第1页"/>
+        android:text="第1页"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
 
 </LinearLayout>

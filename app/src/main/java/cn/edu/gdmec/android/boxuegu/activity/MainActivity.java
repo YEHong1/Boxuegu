@@ -163,6 +163,16 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 setSelectStatus(2);
             }
         }
+        if (requestCode == 000){
+            setSelectStatus(1);
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_body, new FragmentExercisesFragment()).commit();
+            int a = data.getIntExtra("count", 9);
+            int id = data.getIntExtra("id", 9);
+            if (a == 5) {
+                
+            }
+            return;
+        }
     }
 
     @Override

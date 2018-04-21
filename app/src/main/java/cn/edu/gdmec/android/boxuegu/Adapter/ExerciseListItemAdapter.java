@@ -3,7 +3,9 @@ package cn.edu.gdmec.android.boxuegu.Adapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 
 import cn.edu.gdmec.android.boxuegu.Bean.ExercisesBean;
 import cn.edu.gdmec.android.boxuegu.R;
+import cn.edu.gdmec.android.boxuegu.activity.ActivityExercisesDetailActivity;
 
 public class ExerciseListItemAdapter extends BaseAdapter {
 
@@ -74,8 +77,14 @@ public class ExerciseListItemAdapter extends BaseAdapter {
                 public void onClick(View v) {
                     if (bean == null){
                         return;
-                        //跳转到习题界面
                     }
+                    //跳转到习题详细页面
+                    Intent intent = new Intent(context, ActivityExercisesDetailActivity.class);
+                    //把章节Id传递到习题详情页面
+                    intent.putExtra("id", bean.id);
+                    //把标题传递到习题详细页面
+                    intent.putExtra("title", bean.title);
+                    ((Activity) context).startActivityForResult(intent, 000);
                 }
             });
         }

@@ -108,4 +108,8 @@ public class FragmentExercisesFragment extends Fragment  {
         }
     }
 
+    public List<ExercisesBean> EB1(){
+        return eb1;
+    }
+
 }
