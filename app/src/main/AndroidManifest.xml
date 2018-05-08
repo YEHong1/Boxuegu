@@ -2,38 +2,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.edu.gdmec.android.boxuegu">
 
-    <!--
-    去掉程序默认的标题栏
-    android:theme="@style/Theme.AppCompat.NoActionBar"
-    -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/app_icon"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.SplashActivity">
-
-            <!--
-                android.intent.action.MAIN决定应用程序最先启动的Activity
-                android.intent.category.LAUNCHER决定应用程序是否显示在程序列表里
-            -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.LoginAcitivity"/>
-        <activity android:name=".activity.ActivitySettingActivity"/>
-        <activity android:name=".activity.ActivityModifyPswActivity"/>
-        <activity android:name=".activity.ActivityFindPswActivity"/>
-        <activity android:name=".activity.ActivityUserInfoActivity"/>
-        <activity android:name=".activity.ActivityChangeUserInfoActivity"/>
-        <activity android:name=".activity.ActivityExercisesDetailActivity"/>
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.FindPwdActivity" />
+        <activity android:name=".activity.ModifyPwdActivity" />
+        <activity android:name=".activity.ChangeUserInfoActivity" />
+        <activity android:name=".activity.UserInfoActivity" />
+        <activity android:name=".activity.ExercisesDetailActivity"></activity>
     </application>
 
 </manifest>

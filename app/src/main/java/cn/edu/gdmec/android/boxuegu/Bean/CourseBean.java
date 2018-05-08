@@ -1,7 +1,7 @@
-package cn.edu.gdmec.android.boxuegu.Bean;
+package cn.edu.gdmec.android.boxuegu.bean;
 
 /**
- * Created by apple on 18/4/24.
+ * Created by student on 17/12/25.
  */
 
 public class CourseBean {

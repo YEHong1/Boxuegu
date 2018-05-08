@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="头    像"
+            android:text="头  像"
             android:textColor="#000000"
             android:textSize="16sp" />
 
@@ -31,11 +31,11 @@
             android:src="@drawable/default_icon" />
     </RelativeLayout>
 
-    //一条用于隔离的下划线
+
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="#E4E4E4"></View>
+        android:background="#E4E4E4" />
 
     <RelativeLayout
         android:id="@+id/rl_account"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="用户名"
-            android:textColor="#000000"
+            android:textColor="#000"
             android:textSize="16sp" />
 
         <TextView
@@ -59,17 +59,15 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
+            android:text="username"
             android:textColor="#a3a3a3"
-            android:textSize="14sp"
-            />
+            android:textSize="14sp" />
     </RelativeLayout>
-
-
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="#E4E4E4"></View>
+        android:background="#E4E4E4" />
 
     <RelativeLayout
         android:id="@+id/rl_nickName"
@@ -82,26 +80,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="昵   称"
-            android:textColor="#000000"
+            android:text="昵  称"
+            android:textColor="#000"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tv_nickName"
+            android:id="@+id/tv_nick_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
+            android:singleLine="true"
+            android:text="昵称"
             android:textColor="#a3a3a3"
-            android:textSize="14sp"
-            />
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="#E4E4E4"></View>
+        android:background="#E4E4E4" />
 
     <RelativeLayout
         android:id="@+id/rl_sex"
@@ -114,8 +113,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="性    别"
-            android:textColor="#000000"
+            android:text="性  别"
+            android:textColor="#000"
             android:textSize="16sp" />
 
         <TextView
@@ -125,6 +124,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
+            android:singleLine="true"
+            android:text="男"
             android:textColor="#a3a3a3"
             android:textSize="14sp" />
     </RelativeLayout>
@@ -132,7 +133,7 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="#E4E4E4"></View>
+        android:background="#E4E4E4" />
 
     <RelativeLayout
         android:id="@+id/rl_signature"
@@ -145,8 +146,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="签    名"
-            android:textColor="#000000"
+            android:text="签  名"
+            android:textColor="#000"
             android:textSize="16sp" />
 
         <TextView
@@ -156,6 +157,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
+            android:text="你们好"
             android:textColor="#a3a3a3"
             android:textSize="14sp" />
     </RelativeLayout>
@@ -163,7 +165,7 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="#E4E4E4"></View>
+        android:background="#E4E4E4" />
 
     <RelativeLayout
         android:id="@+id/rl_qq"
@@ -176,8 +178,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="QQ号码"
-            android:textColor="#000000"
+            android:text="Q  Q"
+            android:textColor="#000"
             android:textSize="16sp" />
 
         <TextView
@@ -187,13 +189,13 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
+            android:text="未添加"
             android:textColor="#a3a3a3"
             android:textSize="14sp" />
     </RelativeLayout>
 
-
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="#E4E4E4"></View>
+        android:background="#E4E4E4" />
 </LinearLayout>
