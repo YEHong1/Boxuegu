@@ -19,6 +19,7 @@ import cn.edu.gdmec.android.boxuegu.bean.ExercisesBean;
  */
 
 public class AnalysisUtils {
+
     //登陆状态
     public static boolean readLoginStatus(Context context) {
         SharedPreferences sp = context.getSharedPreferences("loginInfo", Context.MODE_PRIVATE);

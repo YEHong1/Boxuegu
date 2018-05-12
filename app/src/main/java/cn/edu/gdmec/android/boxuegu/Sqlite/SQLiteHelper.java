@@ -6,9 +6,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
 
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 3;
     public static String DB_Name = "bxg.db";
     public static final String U_USER_INFO = "userInfo";
+    public static final String U_VIDEO_PLAY_LIST = "videoplaylist";
 
     public SQLiteHelper(Context context) {
         super(context, DB_Name, null, DB_VERSION);
@@ -27,6 +28,15 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 + "signature VARCHAR, "
                 + "qq VARCHAR"
                 + ")");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + U_VIDEO_PLAY_LIST + "( "
+                + "_id  INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "userName VARCHAR, "
+                + "chapterId INT, "
+                + "videoId INT, "
+                + "videoPath VARCHAR, "
+                + "title VARCHAR,"
+                + "secondTitle VARCHAR"
+                + ")");
     }
 
     /**
@@ -35,6 +45,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + U_USER_INFO);
+        db.execSQL("DROP TABLE IF EXISTS " + U_VIDEO_PLAY_LIST);
         onCreate(db);
     }
 }
