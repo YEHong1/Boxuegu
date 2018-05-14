@@ -59,6 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //获取输入在响应控件的字符串
                 getEditString();
+                //TextUtils.isEmpty（）判断是否为null
                 if (TextUtils.isEmpty(userName)) {
                     Toast.makeText(RegisterActivity.this, "请输入用户名", Toast.LENGTH_LONG).show();
                     return;
@@ -79,6 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
                     //保存用户名和密码
                     saveRegisterInfo(userName, psw);
                     Intent data = new Intent();
+                    //使用intent.putExtra（“1”，“2”）实现Activity之间的参数传递，接受传递用intent.getStringExtra（“1”）
                     data.putExtra("userName", userName);
                     setResult(RESULT_OK, data);
                     RegisterActivity.this.finish();
@@ -126,6 +128,7 @@ public class RegisterActivity extends AppCompatActivity {
      * 获取控件的字符串
      */
     private void getEditString() {
+        //获取输入的值并转换为字符串及去掉前后空格
         userName = et_user_name.getText().toString().trim();
         psw = et_psw.getText().toString().trim();
         pswAgain = et_psw_again.getText().toString().trim();

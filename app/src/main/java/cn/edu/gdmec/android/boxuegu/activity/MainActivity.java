@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initNavigation() {
         tv_back = (TextView) findViewById(R.id.tv_back);
+        tv_back.setVisibility(View.GONE);
         tv_main_title = (TextView) findViewById(R.id.tv_main_title);
         rl_title_bar = (RelativeLayout) findViewById(R.id.rl_title_bar);
         rl_title_bar.setBackgroundColor(Color.parseColor("#30B4FF"));
@@ -122,12 +123,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //设置默认的下菜单栏和界面选定
     private void setInitStatus() {
         clearBottomImageState();
         setSelectedStatus(0);
         getSupportFragmentManager().beginTransaction().add(R.id.main_body, new CourseFragment()).commit();
     }
 
+    //点击下菜单栏，出现相对应的状态
     private void setSelectedStatus(int index) {
         switch (index) {
             case 0:
@@ -152,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //下菜单栏不被选中时的样式
     private void clearBottomImageState() {
         bottom_bar_text_course.setTextColor(Color.parseColor("#666666"));
         bottom_bar_text_exercises.setTextColor(Color.parseColor("#666666"));
@@ -162,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bottom_bar_image_myInfo.setImageResource(R.drawable.main_my_icon);
     }
 
+    //下菜单栏按钮的点击事件
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

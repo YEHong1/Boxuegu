@@ -1,5 +1,5 @@
 package cn.edu.gdmec.android.boxuegu.activity;
-
+//欢迎界面
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
@@ -47,6 +47,6 @@ public class SplashActivity extends AppCompatActivity {
                 SplashActivity.this.finish();
             }
         };
-        timer.schedule(task, 300);//设置这个task在延迟3秒之后自动执行
+        timer.schedule(task, 3000);//设置这个task在延迟3秒之后自动执行
     }
 }
